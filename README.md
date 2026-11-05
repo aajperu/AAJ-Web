@@ -10,9 +10,9 @@ Cambios para publicación: se quitó el prefijo «Experimental ·» de los títu
 
 ## Subir a GitHub
 
-1. Extraer este ZIP completo.
-2. Crear un repositorio llamado aaj-web en la cuenta u organización de AAJ!.
-3. Subir el CONTENIDO extraído a la raíz del repositorio, conservando assets/ y sus subcarpetas. No subir el ZIP como archivo ni añadir una carpeta contenedora.
+1. Usar el contenido completo de esta carpeta, que contiene la versión final vigente.
+2. Abrir el repositorio aajperu/AAJ-Web en la rama main.
+3. Subir el CONTENIDO de esta carpeta a la raíz del repositorio, conservando assets/ y sus subcarpetas. No subir el ZIP como archivo ni añadir una carpeta contenedora.
 4. Confirmar que index.html y convocatoria.html aparecen directamente en la raíz, junto con los CSS, JS y assets/.
 5. Guardar en la rama main. Si se usa la web de GitHub, comprobar que .gitignore también se haya incluido: algunos exploradores ocultan archivos cuyo nombre empieza con punto.
 
@@ -33,9 +33,9 @@ Referencia oficial: https://developers.cloudflare.com/pages/framework-guides/dep
 
 ## Dominio de Porkbun
 
-El dominio definitivo no consta en los archivos revisados. Después de verificar pages.dev, añadir el dominio en Custom domains del proyecto Pages y seguir la configuración DNS indicada por Cloudflare. Para un dominio raíz gestionado en Cloudflare, añadir antes la zona y sustituir en Porkbun los nameservers por los asignados a esa zona. Conservar los registros de correo existentes. Verificar HTTPS y decidir la dirección principal (con o sin www).
+El dominio principal configurado es https://aaj.lat. Ambas páginas incluyen canonical, Open Graph y Twitter con URLs absolutas. robots.txt apunta a https://aaj.lat/sitemap.xml, que contiene / y /convocatoria. La imagen social está en assets/social.jpg.
 
-Cuando se conozca esa dirección, añadir canonical y og:url a las dos páginas, convertir og:image a URL absoluta y generar sitemap.xml con URLs reales. No se ha inventado un dominio ni un sitemap.
+La configuración de estos archivos no acredita que el dominio esté conectado ni que el despliegue esté publicado.
 
 ## Edición
 
@@ -48,8 +48,8 @@ Cuando se conozca esa dirección, añadir canonical y og:url a las dos páginas,
 ## Contenidos pendientes existentes
 
 - PDF definitivo de bases 2027: basesUrl está vacío. El botón conserva el aviso «Las bases estarán disponibles próximamente»; para descargar un PDF hay que aportar el documento y configurar su ruta o URL en site-config.js.
-- El manual previo del proyecto señala pendiente la foto de Gaby Cepeda y la posible incorporación de enlaces del jurado y fechas del cronograma. Revisar y aportar el contenido definitivo; este paquete no inventa esos recursos.
-- Dominio definitivo y metadatos sociales absolutos, como se explica arriba.
+- Foto de Gaby Cepeda incorporada en index.html: assets/images/GABY-7f3f3b.jpg. Revisar los enlaces del jurado y las fechas del cronograma cuando se entregue contenido definitivo.
+- Dominio y metadatos configurados para https://aaj.lat.
 
 ## Comprobación
 
