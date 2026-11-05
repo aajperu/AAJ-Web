@@ -1,0 +1,291 @@
+/* Ritmo más compacto después de ampliar márgenes y reducir tipografía. */
+.back-to-top {
+  position: absolute; right: var(--gutter, 9.1vw); bottom: 10px;
+  width: 44px; height: 64px; display: flex; align-items: center; justify-content: center;
+  color: var(--ink); background: transparent;
+}
+.back-to-top svg { width: 36px; height: 64px; display: block; }
+.back-to-top:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (min-width: 721px) {
+  #ediciones { scroll-margin-top: calc(-96 * var(--desktop-unit)); }
+  .back-to-top { right: 0; height: 44px; }
+  .back-to-top svg { width: 24.75px; height: 44px; }
+}
+@media (max-width: 720px) {
+  .back-to-top { height: 44px; left: 50%; right: auto; transform: translateX(-50%); }
+  .back-to-top svg { width: 18px; height: 32px; }
+  .legal-footer small { font-size: clamp(16.2px, 5.682vw, 22.326px); }
+}
+.legal-footer .instagram-link,
+.call-page .legal-footer .instagram-link {
+  width: 44px; height: 44px; right: var(--gutter, 9.1vw); padding: 0;
+}
+.legal-footer.instagram-at-contact .instagram-link,
+.call-page .legal-footer.instagram-at-contact .instagram-link {
+  top: var(--instagram-contact-top); bottom: auto;
+}
+@media (max-width: 720px) {
+  .legal-footer .instagram-link,
+  .call-page .legal-footer .instagram-link { right: 0; }
+}
+@media (min-width: 721px) {
+  .legal-footer .instagram-link,
+  .call-page .legal-footer .instagram-link { right: calc(200 * var(--desktop-unit)); }
+  .call-page .contact-heading .brand { width: calc(174.4 * var(--desktop-unit)); }
+  /* Inicio coincide con el extremo derecho de la banda JÓVENES:
+     196 + 74.007 + 355.021 = 625.028 unidades desde el borde izquierdo. */
+  .site-header { justify-content: flex-start; }
+  .desktop-nav, .call-page .desktop-nav {
+    flex: 0 1 auto; margin-left: calc(205.028 * var(--desktop-unit));
+    justify-content: flex-start; gap: calc(18 * var(--desktop-unit));
+  }
+  .intro-copy p + p { margin-top: calc(20 * var(--desktop-unit)); }
+  .call-link { margin-top: calc(59.2 * var(--desktop-unit)); }
+  .program { margin-top: calc(95.2 * var(--desktop-unit)); }
+  .program-grid { margin-top: calc(52.8 * var(--desktop-unit)); }
+  .allies { margin-top: calc(100 * var(--desktop-unit)); }
+  .ally-grid { margin-top: calc(59.2 * var(--desktop-unit)); }
+  .intro { padding-bottom: calc(134.4 * var(--desktop-unit)); }
+  .curator-bio {
+    font-size: max(12px, calc(24.62 * var(--desktop-unit) - 8px));
+    line-height: 1.35; padding-top: calc(153.12 * var(--desktop-unit));
+    align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .curator-profile { align-self: stretch; display: flex; flex-direction: column; }
+  .curator-portrait { flex: 1; }
+  .curator-bio > p:last-child { margin-bottom: 0; }
+  /* Mitad del hueco anterior hasta la foto: (323 - 196.027 - 54.4) / 2. */
+  .year-tape { top: calc(232.3135 * var(--desktop-unit)); font-size: max(8px, calc(49.6 * var(--desktop-unit) - 3.2px)); line-height: calc(54.4 * var(--desktop-unit)); }
+  .artists { margin-top: calc(87.2 * var(--desktop-unit)); }
+  .artists ul { margin-top: calc(28 * var(--desktop-unit)); }
+  .editions { padding-bottom: calc(99.2 * var(--desktop-unit)); }
+  .activities { padding-top: calc(116.8 * var(--desktop-unit)); padding-bottom: calc(94.96 * var(--desktop-unit)); }
+  .slide-caption { margin-top: calc(8.8 * var(--desktop-unit)); }
+  .group-photo figcaption { margin-top: calc(3.36 * var(--desktop-unit)); }
+  .call-copy p + p { margin-top: calc(20.8 * var(--desktop-unit)); }
+  .people-grid { margin-top: calc(123.36 * var(--desktop-unit)); }
+  .people-grid h2 { margin-bottom: calc(16.8 * var(--desktop-unit)); }
+  .people-grid p + p { margin-top: calc(24.8 * var(--desktop-unit)); }
+  .timeline-section { margin-top: calc(108 * var(--desktop-unit)); }
+  .timeline { margin-top: calc(35.2 * var(--desktop-unit)); }
+  .timeline .step-number { padding-bottom: calc(17.6 * var(--desktop-unit)); }
+  .call-contact { margin-top: calc(150.8 * var(--desktop-unit)); }
+  .call-page .legal-footer { margin-top: calc(22.4 * var(--desktop-unit)); }
+
+  /* Footer principal más bajo, con texto y correo próximos. Sigue en el flujo. */
+  .home-page .contact { padding-top: calc(24 * var(--desktop-unit)); padding-bottom: calc(12 * var(--desktop-unit)); }
+  .home-page .contact h2 { font-size: max(20px, calc(45.208 * var(--desktop-unit) - 3.2px)); line-height: 1.1; }
+  .home-page .contact-heading .brand { width: calc(174.4 * var(--desktop-unit)); }
+  .home-page .contact > p, .home-page .contact > .email {
+    font-size: max(14px, calc(23.912 * var(--desktop-unit) - 3.2px)); line-height: 1.12;
+  }
+  .home-page .contact > p { margin-top: calc(16 * var(--desktop-unit)); }
+  .home-page .contact > .email { margin-top: calc(12 * var(--desktop-unit)); }
+  .home-page .legal-footer { min-height: max(48px, calc(48 * var(--desktop-unit))); padding-bottom: calc(6 * var(--desktop-unit)); }
+  .home-page .legal-footer small { font-size: max(12px, calc(20.64 * var(--desktop-unit) - 3.2px)); line-height: 1.1; }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .site-header { justify-content: space-between; }
+  .desktop-nav, .call-page .desktop-nav { flex-basis: 100%; margin-left: 0; }
+  .curator-bio { padding-top: 0; }
+}
+@media (max-width: 720px) {
+  .year-tape { bottom: 15.5px; font-size: max(10px, calc(clamp(25px, 7.37vw, 28.95px) * .8 - 3.2px)); }
+}
+
+/* Revisión: aire moderado en el footer, lista más pequeña y header en una fila. */
+@media (min-width: 721px) {
+  .home-page .contact { padding-top: calc(32 * var(--desktop-unit)); padding-bottom: calc(20 * var(--desktop-unit)); }
+  .home-page .contact > p, .home-page .contact > .email { line-height: 1.2; }
+  .home-page .contact > p { margin-top: calc(20 * var(--desktop-unit)); }
+  .home-page .contact > .email { margin-top: calc(16 * var(--desktop-unit)); }
+  .home-page .legal-footer { min-height: max(56px, calc(56 * var(--desktop-unit))); }
+  .artists > h3 { font-size: max(24px, calc(56 * var(--desktop-unit) - 6px)); line-height: 1.2; }
+  .artists li { font-size: max(12px, calc(26 * var(--desktop-unit) - 6px)); line-height: 1.35; }
+  .call-action { margin-top: calc(20.3 * var(--desktop-unit)); }
+  .people-grid { margin-top: calc(135.36 * var(--desktop-unit)); }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .site-header { flex-wrap: nowrap; padding-inline: calc(80 * var(--desktop-unit)); gap: 12px; }
+  .site-header .brand { width: clamp(88px, 13.2vw, 145px); }
+  .desktop-nav, .call-page .desktop-nav {
+    flex: 1 1 auto; flex-basis: auto; flex-wrap: nowrap; margin-left: 0;
+    justify-content: flex-end; gap: clamp(5px, .7vw, 8px);
+    font-size: clamp(10px, 1.09vw, 12px); white-space: nowrap;
+  }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 9.1vw; }
+  .site-header { padding-inline: 5.6vw; }
+  .intro, .editions, .call-main, .activities, .home-page .contact { padding-inline: var(--gutter); }
+  .intro { padding-top: 24px; padding-bottom: 52px; }
+  .intro-copy { margin-top: 100px; }
+  .intro-copy p + p { margin-top: 1.12em; }
+  .call-link { margin-top: 60px; }
+  .program { margin-top: 144px; }
+  .program-grid { margin-top: 36px; }
+  .program-grid li + li { margin-top: 52px; }
+  .program-grid h3 { margin-top: 20px; }
+  .program-grid p { margin-top: 8px; }
+  .allies { margin-top: 96px; }
+  .ally-grid { margin-top: 36px; gap: 44px; }
+  .editions { padding-top: 28px; padding-bottom: 64px; }
+  .artists { margin-top: 52px; }
+  .artists ul { margin-top: 22.4px; }
+  .artists > h3 { font-size: max(22px, calc(32px - 6px)); line-height: 1.15; }
+  .artists li { font-size: 16px; line-height: 1.3; margin-top: 21.6px; }
+  .group-photo { margin-top: 100px; }
+  .activities { padding-top: clamp(80px, 14.08svh, 120px); padding-bottom: 32px; }
+  .call-main { padding-top: 24px; padding-bottom: 64px; }
+  .call-copy { margin-top: 76px; }
+  .call-copy p + p { margin-top: 1.2em; }
+  .call-action { margin-top: 20px; }
+  .people-grid { margin-top: 80px; }
+  .people-grid > div + div { margin-top: 80px; }
+  .people-grid h2 { margin-bottom: 16px; }
+  .people-grid p + p { margin-top: 19.2px; }
+  .timeline-section { margin-top: 80px; }
+  .timeline { margin-top: 44px; }
+  .timeline li { min-height: 104px; }
+  .timeline li:last-child { min-height: 0; }
+  .timeline h3 { padding-bottom: 16px; }
+}
+@media (max-width: 380px) { .intro-copy { margin-top: 72px; } }
+
+/* Inicio incluye el encabezado; etiqueta de Gaby en el flujo sobre la biografía. */
+@media (min-width: 721px) {
+  .curator-label-desktop {
+    position: static; top: auto; right: auto;
+    line-height: 1.08; margin-bottom: calc(10 * var(--desktop-unit));
+  }
+}
+@media (min-width: 1101px) { .curator-bio { padding-top: calc(96 * var(--desktop-unit)); } }
+@media (max-width: 720px) {
+  .artists > h3 { font-size: 28px; }
+  .artists li { font-size: 18px; }
+}
+
+/* Rótulo de Gaby alineado con el borde superior de la foto. */
+@media (min-width: 721px) {
+  .curator-label-desktop { position: absolute; top: 0; right: calc(3 * var(--desktop-unit)); margin-bottom: 0; }
+  .curator-bio { padding-top: max(72px, calc(96 * var(--desktop-unit))); }
+  .artists li { line-height: 1.5; }
+}
+@media (max-width: 720px) {
+  .artists li { line-height: 1.45; }
+  .bio-dialog { font-size: 18px; line-height: 1.4; overflow-y: auto; }
+  /* Imagen + leyenda centradas entre header y footer. La reserva simétrica
+     permite que ACTIVIDADES suba con la foto y conserve su esquina completa. */
+  .activities {
+    display: flex; justify-content: center;
+    min-height: calc(100svh - var(--header-height, 88px) - var(--footer-height, 75px));
+    padding-block: 80px;
+  }
+  .activities .slideshow { margin: 0; align-self: center; width: 100%; }
+  .slide-image-wrap {
+    max-height: max(96px, calc(100svh - var(--header-height, 88px) - var(--footer-height, 75px) - var(--caption-height, 48px) - var(--photo-caption-gap, 10px) - 160px));
+  }
+  .activity-heading-mobile { top: -146px; }
+}
+
+/* En móvil los SVG solo conservan sus animaciones de entrada. */
+@media (max-width: 720px) {
+  .exp-drag-handle { pointer-events: none; touch-action: pan-y; cursor: auto; }
+  .exp-play-controls { display: none !important; }
+}
+
+/* Ambos pies comparten geometría; Convocatoria conserva sus fondos por objeto. */
+@media (min-width: 721px) {
+  .home-page .contact, .call-page .contact {
+    padding-top: calc(32 * var(--desktop-unit));
+    padding-bottom: calc(20 * var(--desktop-unit));
+  }
+  .call-page .call-contact { padding-inline: 0; margin-inline: calc(4 * var(--desktop-unit)); }
+  .home-page .contact h2, .call-page .contact h2 {
+    font-size: max(20px, calc(45.208 * var(--desktop-unit) - 3.2px)); line-height: 1.1;
+  }
+  .home-page .contact-heading .brand, .call-page .contact-heading .brand {
+    width: calc(174.4 * var(--desktop-unit));
+  }
+  .home-page .contact > p, .home-page .contact > .email,
+  .call-page .contact > p, .call-page .contact > .email {
+    font-size: max(14px, calc(23.912 * var(--desktop-unit) - 3.2px)); line-height: 1.2;
+  }
+  .home-page .contact > p, .call-page .contact > p { margin-top: calc(20 * var(--desktop-unit)); }
+  .home-page .contact > .email, .call-page .contact > .email { margin-top: calc(16 * var(--desktop-unit)); }
+  .home-page .legal-footer, .call-page .legal-footer {
+    margin-top: 0; min-height: max(56px, calc(56 * var(--desktop-unit)));
+    padding: 0 calc(22 * var(--desktop-unit)) calc(6 * var(--desktop-unit));
+    align-items: flex-end; justify-content: center;
+  }
+  .home-page .legal-footer small, .call-page .legal-footer small {
+    font-size: max(12px, calc(20.64 * var(--desktop-unit) - 3.2px)); line-height: 1.1;
+  }
+}
+@media (max-width: 720px) {
+  .call-page .legal-footer {
+    height: auto; min-height: 75px; padding: 12px 4vw 10px;
+    align-items: center; justify-content: flex-start;
+  }
+  .call-page .legal-footer .instagram-link { bottom: 10px; }
+}
+
+/* Correcciones mobile: pie inferior y composición de Contacto y Actividades. */
+@media (max-width: 720px) {
+  .home-page .legal-footer, .call-page .legal-footer {
+    box-sizing: border-box; height: 64px; min-height: 64px;
+    margin-top: 0; padding: 10px 4vw; align-items: flex-end;
+  }
+  .legal-footer .instagram-link,
+  .call-page .legal-footer .instagram-link,
+  .legal-footer.instagram-at-contact .instagram-link,
+  .call-page .legal-footer.instagram-at-contact .instagram-link {
+    top: auto; bottom: 10px; right: 0;
+  }
+  .back-to-top { bottom: 10px; align-items: flex-end; }
+  .home-page .contact {
+    position: relative; display: grid; align-content: center;
+    min-height: calc(100svh - var(--header-height, 88px) - var(--footer-height, 64px));
+    padding-block: 0;
+  }
+  .home-page .contact-heading {
+    position: absolute; top: 0; left: var(--gutter); right: var(--gutter); height: 0;
+  }
+  .home-page .contact-tape { top: clamp(28px, 8svh, 68px); }
+  .home-page .contact > p { margin-top: 0; }
+  .home-page .contact > .email { margin-top: 24px; }
+  .year-tape { font-size: clamp(26px, 8vw, 32px); }
+  .activity-heading-mobile > span { outline: 4px solid var(--ink); outline-offset: -1px; }
+  .activities .slide-image-wrap {
+    aspect-ratio: 4 / 5; height: auto; min-height: 0; max-height: none;
+  }
+  .slide-prev, .slide-next {
+    width: 44px; height: 44px;
+    top: calc((100% - var(--caption-height, 48px) - var(--photo-caption-gap, 10px)) / 2);
+  }
+  .activities .slide-prev { left: -22px; right: auto; }
+  .activities .slide-next { right: -22px; left: auto; }
+  .slide-prev svg, .slide-next svg { width: 14px; height: 22px; }
+  .menu-head .brand:focus { outline: none; }
+  .menu-head .brand:focus-visible { box-shadow: 0 3px 0 var(--ink); }
+}
+.slide-prev svg, .slide-next svg { display: block; }
+@media (min-width: 721px) {
+  .slide-prev svg, .slide-next svg { width: 24px; height: 32px; }
+}
+
+/* Pie móvil: copyright a la izquierda, retorno e Instagram juntos a la derecha. */
+@media (max-width: 720px) {
+  .legal-footer small { font-size: clamp(24px, 7.6vw, 30px); line-height: 1; font-weight: 300; }
+  .back-to-top {
+    left: auto; right: calc(4vw + 44px); bottom: 10px; transform: none;
+    width: 44px; height: 44px;
+  }
+  .back-to-top svg { width: 18px; height: 32px; }
+  .legal-footer .instagram-link,
+  .call-page .legal-footer .instagram-link {
+    width: 44px; height: 44px; right: 4vw;
+    display: flex; align-items: flex-end; justify-content: flex-end;
+  }
+  .legal-footer .instagram-link svg { width: 36px; height: 36px; }
+}

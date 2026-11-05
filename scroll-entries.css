@@ -1,0 +1,16 @@
+/* Se reserva el espacio, pero el contenido no se ve antes de su entrada.
+   La clase raíz solo se añade cuando JavaScript y el movimiento están activos. */
+html.exp-entry-effects main p:not(.sr-only, .curator-label-desktop, .exp-drop-visible, .contact p, .legal-footer p, .curator-label p) {
+  visibility: hidden;
+}
+html.exp-entry-effects #hero-title:not(.exp-hero-play):not(.exp-hero-settled) > img,
+html.exp-entry-effects [data-exp-art]:not(.exp-art-play):not(.exp-art-settled) > img,
+html.exp-entry-effects .activity-heading > span > img:not(.exp-single-played) {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce), print {
+  html.exp-entry-effects main p,
+  html.exp-entry-effects #hero-title > img,
+  html.exp-entry-effects [data-exp-art] > img,
+  html.exp-entry-effects .activity-heading > span > img { visibility: visible !important; }
+}

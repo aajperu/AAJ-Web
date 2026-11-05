@@ -1,0 +1,227 @@
+/* Reducción de 4 px sobre las reglas de tipografía anteriores. Mínimo 10 px.
+   Hoja separada para poder retirar este ajuste sin modificar el diseño base. */
+
+/* styles.css */
+body { font-size: max(10px, calc(clamp(16px,1.65vw,26px) - 4px)); }
+.desktop-nav { font-size: max(10px, calc(clamp(11px,1.23vw,19px) - 4px)); }
+.intro-copy { font-size: max(10px, calc(clamp(17px,1.65vw,26px) - 4px)); }
+.call-link { font-size: max(10px, calc(clamp(26px,3.35vw,50px) - 4px)); }
+.program>h2,.allies>h2 { font-size: max(10px, calc(clamp(28px,3.15vw,47px) - 4px)); }
+.step-number { font-size: max(10px, calc(clamp(42px,4.7vw,70px) - 4px)); }
+.year-tape { font-size: max(10px, calc(clamp(38px,4.5vw,68px) - 4px)); }
+.curator-bio { font-size: max(10px, calc(clamp(16px,1.5vw,23px) - 4px)); }
+.curator-label-desktop { font-size: max(10px, calc(clamp(19px,1.95vw,29px) - 4px)); }
+.artists>h3 { font-size: max(10px, calc(clamp(28px,3.4vw,50px) - 4px)); }
+.artists li { font-size: max(10px, calc(clamp(19px,2vw,30px) - 4px)); }
+.group-photo figcaption,.slide-caption { font-size: max(10px, calc(clamp(15px,1.55vw,23px) - 4px)); }
+.activity-heading>span { font-size: max(10px, calc(clamp(35px,4.6vw,67px) - 4px)); }
+.slide-prev,.slide-next { font-size: max(10px, calc(clamp(25px,3.5vw,48px) - 4px)); }
+.contact h2 { font-size: max(10px, calc(clamp(33px,4.6vw,68px) - 4px)); }
+.contact>p { font-size: max(10px, calc(clamp(21px,2.5vw,36px) - 4px)); }
+.legal-footer small { font-size: max(10px, calc(17px - 4px)); }
+.call-copy { font-size: max(10px, calc(clamp(20px,2vw,30px) - 4px)); }
+.bases-link { font-size: max(10px, calc(clamp(30px,3.5vw,53px) - 4px)); }
+.people-grid { font-size: max(10px, calc(clamp(23px,2.4vw,36px) - 4px)); }
+.people-grid h2 { font-size: max(10px, calc(clamp(34px,3.7vw,55px) - 4px)); }
+.timeline-section>h2 { font-size: max(10px, calc(clamp(30px,3.2vw,48px) - 4px)); }
+.timeline .step-number { font-size: max(10px, calc(clamp(38px,4.3vw,64px) - 4px)); }
+.timeline h3 { font-size: max(10px, calc(clamp(17px,1.8vw,27px) - 4px)); }
+.call-contact h2 { font-size: max(10px, calc(clamp(42px,4.5vw,68px) - 4px)); }
+.bio-dialog { font-size: max(10px, calc(22px - 4px)); }
+.notice-dialog h2 { font-size: max(10px, calc(30px - 4px)); }
+@media(min-width:1800px) {
+body { font-size: max(10px, calc(26px - 4px)); }
+}
+@media(min-width:721px) and (max-width:1100px) {
+.desktop-nav { font-size: max(10px, calc(11px - 4px)); }
+}
+@media(max-width:720px) {
+body { font-size: max(10px, calc(20px - 4px)); }
+.intro-copy { font-size: max(10px, calc(20px - 4px)); }
+.call-link { font-size: max(10px, calc(34px - 4px)); }
+.program>h2 { font-size: max(10px, calc(32px - 4px)); }
+.step-number { font-size: max(10px, calc(52px - 4px)); }
+.program-grid h3 { font-size: max(10px, calc(22px - 4px)); }
+.program-grid p { font-size: max(10px, calc(20px - 4px)); }
+.allies>h2 { font-size: max(10px, calc(32px - 4px)); }
+.year-tape { font-size: max(10px, calc(54px - 4px)); }
+.curator-label { font-size: max(10px, calc(26px - 4px)); }
+.bio-open { font-size: max(10px, calc(76px - 4px)); }
+.artists>h3 { font-size: max(10px, calc(32px - 4px)); }
+.artists li { font-size: max(10px, calc(22px - 4px)); }
+.group-photo figcaption { font-size: max(10px, calc(17px - 4px)); }
+.activity-heading>span { font-size: max(10px, calc(clamp(29px,8.5vw,60px) - 4px)); }
+.slide-caption { font-size: max(10px, calc(clamp(17px,4.1vw,25px) - 4px)); }
+.slide-prev,.slide-next { font-size: max(10px, calc(30px - 4px)); }
+.contact h2 { font-size: max(10px, calc(44px - 4px)); }
+.contact-tape { font-size: max(10px, calc(clamp(40px,11vw,65px) - 4px)); }
+.contact>p { font-size: max(10px, calc(clamp(22px,6vw,34px) - 4px)); }
+.contact>.email { font-size: max(10px, calc(clamp(17px,5.25vw,31px) - 4px)); }
+.legal-footer small { font-size: max(10px, calc(18px - 4px)); }
+.call-copy { font-size: max(10px, calc(22px - 4px)); }
+.bases-link { font-size: max(10px, calc(clamp(24px,6.6vw,40px) - 4px)); }
+.people-grid { font-size: max(10px, calc(21px - 4px)); }
+.people-grid h2 { font-size: max(10px, calc(32px - 4px)); }
+.timeline-section>h2 { font-size: max(10px, calc(32px - 4px)); }
+.timeline .step-number { font-size: max(10px, calc(44px - 4px)); }
+.timeline h3 { font-size: max(10px, calc(30px - 4px)); }
+.menu-item { font-size: max(10px, calc(9.5vw - 4px)); }
+.menu-editions { font-size: max(10px, calc(8.2vw - 4px)); }
+.menu-activities { font-size: max(10px, calc(8.8vw - 4px)); }
+.menu-contact { font-size: max(10px, calc(9.5vw - 4px)); }
+.bio-dialog { font-size: max(10px, calc(23px - 4px)); }
+.notice-dialog { font-size: max(10px, calc(21px - 4px)); }
+}
+@media(max-width:370px) {
+body { font-size: max(10px, calc(18px - 4px)); }
+.intro-copy,.program-grid p { font-size: max(10px, calc(18px - 4px)); }
+.program-grid h3 { font-size: max(10px, calc(20px - 4px)); }
+.artists li { font-size: max(10px, calc(19px - 4px)); }
+.curator-label { font-size: max(10px, calc(23px - 4px)); }
+.call-copy { font-size: max(10px, calc(20px - 4px)); }
+.people-grid { font-size: max(10px, calc(19px - 4px)); }
+.people-grid h2,.timeline-section>h2 { font-size: max(10px, calc(28px - 4px)); }
+.timeline h3 { font-size: max(10px, calc(26px - 4px)); }
+.timeline .step-number { font-size: max(10px, calc(39px - 4px)); }
+.legal-footer small { font-size: max(10px, calc(16px - 4px)); }
+}
+@media(max-width:720px) {
+.menu-start { font-size: max(10px, calc(min(11.5vw,5.3svh) - 4px)); }
+.menu-editions { font-size: max(10px, calc(min(9.7vw,4.48svh) - 4px)); }
+.menu-activities { font-size: max(10px, calc(min(10vw,4.62svh) - 4px)); }
+.menu-contact { font-size: max(10px, calc(min(10.4vw,4.8svh) - 4px)); }
+}
+@media(max-width:720px) {
+html:not(.js) .desktop-nav { font-size: max(10px, calc(17px - 4px)); }
+}
+.desktop-nav { font-size: max(10px, calc(clamp(12px,1.35vw,20px) - 4px)); }
+.contact>.email { font-size: max(10px, calc(clamp(21px,2.5vw,36px) - 4px)); }
+@media(min-width:721px) and (max-width:1100px) {
+.desktop-nav { font-size: max(10px, calc(clamp(11px,1.2vw,14px) - 4px)); }
+}
+@media(max-width:720px) {
+.contact>.email { font-size: max(10px, calc(clamp(17px,5.25vw,31px) - 4px)); }
+.menu-call { font-size: max(10px, calc(min(8.3vw,3.85svh) - 4px)); }
+.menu-editions { font-size: max(10px, calc(min(8.5vw,3.9svh) - 4px)); }
+.menu-activities { font-size: max(10px, calc(min(9.5vw,4.35svh) - 4px)); }
+.menu-contact { font-size: max(10px, calc(min(9.5vw,4.35svh) - 4px)); }
+}
+@media(max-width:720px) {
+.menu-stage .menu-item { font-size: max(10px, calc(40px - 4px)); }
+}
+@media(max-width:720px) {
+.menu-stage .menu-item { font-size: max(10px, calc(36px - 4px)); }
+}
+@media(max-width:720px) {
+.menu-stage .menu-item { font-size: max(10px, calc(38px - 4px)); }
+}
+@media(max-width:720px) {
+.menu-stage .menu-item { font-size: max(10px, calc(36px - 4px)); }
+}
+@media(min-width:721px) {
+.desktop-nav { font-size: max(10px, calc(clamp(12px,1.806vw,26px) - 4px)); }
+.intro-copy { font-size: max(10px, calc(clamp(17px,1.736vw,25px) - 4px)); }
+.program-grid h3 { font-size: max(10px, calc(clamp(20px,2.014vw,29px) - 4px)); }
+.program-grid p { font-size: max(10px, calc(clamp(17px,1.597vw,23px) - 4px)); }
+.allies>h2 { font-size: max(10px, calc(clamp(32px,3.68vw,53px) - 4px)); }
+.year-tape { font-size: max(10px, calc(clamp(38px,4.3vw,62px) - 4px)); }
+.curator-bio { font-size: max(10px, calc(clamp(17px,1.71vw,24.62px) - 4px)); }
+.curator-label-desktop { font-size: max(10px, calc(clamp(21px,2.2vw,31.62px) - 4px)); }
+.artists>h3 { font-size: max(10px, calc(clamp(32px,3.89vw,56px) - 4px)); }
+.artists li { font-size: max(10px, calc(clamp(20px,2.22vw,32px) - 4px)); }
+.activities>.activity-heading>span { font-size: max(10px, calc(clamp(38px,4.73vw,68px) - 4px)); }
+.slide-caption { font-size: max(10px, calc(clamp(17px,1.99vw,28.69px) - 4px)); }
+.contact>p { font-size: max(10px, calc(clamp(22px,2.48vw,35.76px) - 4px)); }
+.contact>.email { font-size: max(10px, calc(clamp(22px,2.48vw,35.76px) - 4px)); }
+.legal-footer small { font-size: max(10px, calc(17px - 4px)); }
+}
+@media(min-width:721px) and (max-width:1100px) {
+.desktop-nav { font-size: max(10px, calc(clamp(11px,1.25vw,14px) - 4px)); }
+}
+@media(max-width:720px) {
+.legal-footer small { font-size: max(10px, calc(clamp(27px,9.47vw,37.21px) - 4px)); }
+.year-tape { font-size: max(10px, calc(clamp(25px,7.37vw,28.95px) - 4px)); }
+.activity-heading-mobile>span { font-size: max(10px, calc(32px - 4px)); }
+.slide-caption { font-size: max(10px, calc(clamp(16px,4.39vw,20px) - 4px)); }
+}
+@media(max-width:720px) {
+.activity-heading-mobile>span { font-size: max(10px, calc(clamp(26px,8.14vw,32px) - 4px)); }
+}
+@media(min-width:721px) {
+.desktop-nav { font-size: max(10px, calc(clamp(16px,2.083333vw,30px) - 4px)); }
+}
+@media(min-width:721px) and (max-width:1100px) {
+.desktop-nav { font-size: max(10px, calc(clamp(13.2px,1.63636vw,18px) - 4px)); }
+}
+@media(max-width:720px) {
+.legal-footer small { font-size: max(10px, calc(clamp(16.2px,5.682vw,22.326px) - 4px)); }
+}
+
+/* custom.css */
+.noscript-note { font-size: max(10px, calc(18px - 4px)); }
+@media (min-width: 721px) {
+.desktop-nav { font-size: max(10px, calc(clamp(16px, 2.083333vw, var(--menu-desktop-font-max)) - 4px)); }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+.desktop-nav { font-size: max(10px, calc(clamp(13.2px, 1.63636vw, var(--menu-tablet-font-max)) - 4px)); }
+}
+@media (max-width: 720px) {
+.legal-footer small { font-size: max(10px, calc(clamp(16.2px, 5.682vw, var(--footer-mobile-font-max)) - 4px)); }
+}
+
+/* experimental.css */
+.exp-play-controls { font-size: max(10px, calc(12px - 4px)); }
+@media (min-width: 721px) {
+.desktop-nav { font-size: max(10px, calc(calc(clamp(16px, 2.083333vw, var(--menu-desktop-font-max)) - 2px) - 4px)); }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+.desktop-nav { font-size: max(10px, calc(calc(clamp(13.2px, 1.63636vw, var(--menu-tablet-font-max)) - 2px) - 4px)); }
+}
+@media (max-width: 720px) {
+.bio-dialog, .notice-dialog { font-size: max(10px, calc(clamp(16px, 4.6vw, 18px) - 4px)); }
+.notice-dialog h2 { font-size: max(10px, calc(24px - 4px)); }
+}
+
+/* desktop-layout.css */
+@media (min-width: 721px) {
+@media (min-width: 721px) {
+.desktop-nav { font-size: max(10px, calc(calc(19 * var(--desktop-unit)) - 4px)); }
+.intro-copy { font-size: max(10px, calc(calc(20 * var(--desktop-unit)) - 4px)); }
+.call-link { font-size: max(10px, calc(calc(37.28 * var(--desktop-unit)) - 4px)); }
+.program > h2 { font-size: max(10px, calc(calc(47 * var(--desktop-unit)) - 4px)); }
+.program-grid .step-number { font-size: max(10px, calc(calc(67.4 * var(--desktop-unit)) - 4px)); }
+.program-grid h3 { font-size: max(10px, calc(calc(27 * var(--desktop-unit)) - 4px)); }
+.program-grid p { font-size: max(10px, calc(calc(19 * var(--desktop-unit)) - 4px)); }
+.program-grid li:nth-child(2) p { font-size: max(10px, calc(calc(19 * var(--desktop-unit)) - 4px)); }
+.allies > h2 { font-size: max(10px, calc(calc(53 * var(--desktop-unit)) - 4px)); }
+.year-tape { font-size: max(10px, calc(calc(62 * var(--desktop-unit)) - 4px)); }
+.curator-bio { font-size: max(10px, calc(calc(24.62 * var(--desktop-unit)) - 4px)); }
+.curator-label-desktop { font-size: max(10px, calc(calc(31.62 * var(--desktop-unit)) - 4px)); }
+.artists > h3 { font-size: max(10px, calc(calc(56 * var(--desktop-unit)) - 4px)); }
+.artists li { font-size: max(10px, calc(calc(26 * var(--desktop-unit)) - 4px)); }
+.group-photo figcaption { font-size: max(10px, calc(calc(17.95 * var(--desktop-unit)) - 4px)); }
+.slide-caption { font-size: max(10px, calc(calc(24.59 * var(--desktop-unit)) - 4px)); }
+.contact h2 { font-size: max(10px, calc(calc(56.51 * var(--desktop-unit)) - 4px)); }
+.contact > p { font-size: max(10px, calc(calc(29.89 * var(--desktop-unit)) - 4px)); }
+.contact > .email { font-size: max(10px, calc(calc(29.89 * var(--desktop-unit)) - 4px)); }
+.legal-footer small { font-size: max(10px, calc(calc(25.8 * var(--desktop-unit)) - 4px)); }
+.call-copy { font-size: max(10px, calc(calc(21 * var(--desktop-unit)) - 4px)); }
+.bases-link { font-size: max(10px, calc(calc(42.56 * var(--desktop-unit)) - 4px)); }
+.people-grid { font-size: max(10px, calc(calc(30 * var(--desktop-unit)) - 4px)); }
+.people-grid h2 { font-size: max(10px, calc(calc(45 * var(--desktop-unit)) - 4px)); }
+.timeline-section > h2 { font-size: max(10px, calc(calc(47 * var(--desktop-unit)) - 4px)); }
+.timeline .step-number { font-size: max(10px, calc(calc(50.4 * var(--desktop-unit)) - 4px)); }
+.timeline h3 { font-size: max(10px, calc(calc(25.7 * var(--desktop-unit)) - 4px)); }
+.call-contact h2 { font-size: max(10px, calc(calc(56.51 * var(--desktop-unit)) - 4px)); }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+.desktop-nav { font-size: max(10px, calc(clamp(12px, 1.31944vw, 19px) - 4px)); }
+.intro-copy { font-size: max(10px, calc(max(16px, calc(20 * var(--desktop-unit))) - 4px)); }
+.program-grid p { font-size: max(10px, calc(max(15px, calc(19 * var(--desktop-unit))) - 4px)); }
+.curator-bio { font-size: max(10px, calc(max(15px, calc(24.62 * var(--desktop-unit))) - 4px)); }
+.artists li { font-size: max(10px, calc(max(14px, calc(26 * var(--desktop-unit))) - 4px)); }
+.group-photo figcaption { font-size: max(10px, calc(max(12px, calc(18 * var(--desktop-unit))) - 4px)); }
+.slide-caption { font-size: max(10px, calc(max(15px, calc(26.8 * var(--desktop-unit))) - 4px)); }
+.call-copy { font-size: max(10px, calc(max(16px, calc(21 * var(--desktop-unit))) - 4px)); }
+}
+}

@@ -1,0 +1,47 @@
+/* Márgenes laterales de contenido x2, sin escalar fuentes ni fondos. */
+@media (min-width: 721px) {
+  .site-header { padding-inline: calc(200 * var(--desktop-unit)); }
+  .desktop-nav, .call-page .desktop-nav { margin-left: 0; gap: calc(12 * var(--desktop-unit)); }
+  .intro, .editions, .call-main { padding-inline: calc(196 * var(--desktop-unit)); }
+  .home-page .contact { padding-inline: calc(200 * var(--desktop-unit)); }
+  .year-tape { right: calc(196 * var(--desktop-unit)); }
+  .edition-heading #editions-title { left: calc(112.903 * var(--desktop-unit)); }
+  .hero-grid { grid-template-columns: minmax(0, .469fr) minmax(0, .531fr); }
+  .hero-art { max-width: calc(100% - 74.007 * var(--desktop-unit)); }
+  .program-grid { grid-template-columns: minmax(0, .317fr) minmax(0, .356fr) minmax(0, .327fr); }
+  .ally-grid img { min-width: 0; }
+  .ally-grid .ally-lima { flex: 330 1 0; }
+  .ally-grid .ally-mali { flex: 260 1 0; }
+  .ally-grid .ally-encuentro { flex: 345 1 0; }
+  .artists li { grid-template-columns: 55% minmax(0, 1fr); }
+  .artists li > * { min-width: 0; overflow-wrap: anywhere; }
+  .group-photo { max-width: 100%; }
+  /* El encuadre del slideshow ya es más estrecho que el nuevo ancho útil. */
+  .activities { padding-inline: calc(196 * var(--desktop-unit)); }
+  .activities .slideshow { max-width: 100%; }
+  .call-hero, .people-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .call-hero h1 { max-width: calc(100% - 52.384 * var(--desktop-unit)); }
+  .call-link span { max-width: 100%; white-space: normal; }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .site-header { flex-wrap: wrap; }
+  .desktop-nav, .call-page .desktop-nav { flex-basis: 100%; flex-wrap: wrap; gap: 12px; }
+  .hero-art { margin-left: 0; max-width: 100%; }
+  .hero-grid { gap: calc(40 * var(--desktop-unit)); }
+  .curator-grid { grid-template-columns: minmax(0, 1fr) 32%; }
+  .curator-label-desktop { position: static; margin-bottom: 1em; }
+  .curator-bio { padding-top: 0; }
+  .call-hero h1 { margin-left: 0; max-width: 100%; }
+  .timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.5em; }
+  .exp-timeline-track { display: none; }
+  .exp-timeline-ready .timeline .step-number { border-bottom-color: currentColor; }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 13vw; }
+  .site-header { padding-inline: 8vw; }
+  .intro, .editions, .call-main { padding-inline: var(--gutter); }
+  .home-page .contact { padding-inline: var(--gutter); }
+  .activities { padding-inline: var(--gutter); }
+  .slideshow { max-width: 100%; }
+  .email { overflow-wrap: anywhere; }
+}

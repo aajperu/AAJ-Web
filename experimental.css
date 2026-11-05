@@ -1,0 +1,211 @@
+/* AAJ! — EXPERIMENTO DE MOVIMIENTO
+   Se carga solo en esta copia, después de los estilos originales.
+   1. Entrada de títulos por bandas. 2. Párrafos que caen como bloques. 3. Cronograma trazado.
+   Sin JavaScript o con movimiento reducido, se conserva la presentación estática. */
+
+/* 1. El gráfico original mantiene la altura y queda como resultado final. */
+.hero-art { position: relative; }
+.exp-hero-pieces { display: none; }
+.exp-hero-ready .exp-hero-static { opacity: 0; }
+.exp-hero-ready .exp-hero-pieces {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.exp-hero-strip {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.exp-hero-play .exp-hero-strip {
+  animation: exp-band-place 650ms cubic-bezier(.18,.8,.2,1.04) var(--piece-delay) both;
+}
+.exp-hero-ready.exp-hero-settled .exp-hero-static { opacity: 1; }
+.exp-hero-ready.exp-hero-settled .exp-hero-pieces { visibility: hidden; }
+@keyframes exp-band-place {
+  from { opacity: 0; transform: translate(var(--piece-x), var(--piece-y)) rotate(var(--piece-angle)); }
+  to { opacity: 1; transform: translate(0,0) rotate(0); }
+}
+
+/* Bandas de Ediciones y Convocatoria. La imagen conserva el espacio y el acabado. */
+[data-exp-art] { position: relative; }
+.exp-art-pieces { display: none; }
+.exp-art-ready > img { opacity: 0; }
+.exp-art-ready > .exp-art-pieces {
+  display: block;
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+  max-width: none;
+}
+.exp-art-play .exp-hero-strip {
+  animation: exp-band-place 650ms cubic-bezier(.18,.8,.2,1.04) var(--piece-delay) both;
+}
+.exp-art-ready.exp-art-settled > img { opacity: 1; }
+.exp-art-ready.exp-art-settled > .exp-art-pieces { visibility: hidden; }
+#contact-title .desktop-only { display: inline-block; }
+@media (max-width: 720px) { #contact-title .desktop-only { display: none; } }
+
+::selection { background: #fcff71; color: #1d1d1b; }
+
+/* 3. El trazo se superpone sobre la posición medida de la línea existente. */
+.exp-timeline-scene { position: relative; display: flow-root; }
+.exp-timeline-track {
+  position: absolute;
+  pointer-events: none;
+  background: transparent;
+  visibility: hidden;
+}
+.exp-timeline-scene.exp-timeline-ready .exp-timeline-track { visibility: visible; }
+.exp-timeline-progress {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  transform: scaleX(var(--exp-timeline-progress, 0));
+  transform-origin: left center;
+}
+.exp-timeline-ready .timeline > li {
+  opacity: 1;
+}
+.exp-timeline-ready .timeline > li:focus-within { opacity: 1; }
+@media (min-width: 721px) {
+  .exp-timeline-ready .timeline .step-number { border-bottom-color: transparent; }
+}
+@media (max-width: 720px) {
+  .exp-timeline-ready .timeline h3 { border-left-color: transparent; }
+  .exp-timeline-progress {
+    transform: scaleY(var(--exp-timeline-progress, 0));
+    transform-origin: center top;
+    background: #111111;
+  }
+}
+
+/* La preferencia del sistema muestra de inmediato todos los contenidos. */
+@media (prefers-reduced-motion: reduce) {
+  .exp-hero-ready .exp-hero-static { opacity: 1 !important; }
+  .exp-hero-pieces { display: none !important; }
+  .exp-art-ready > img { opacity: 1 !important; }
+  .exp-art-pieces { display: none !important; }
+  .exp-timeline-ready .timeline > li { opacity: 1; translate: none; transition: none; }
+  .exp-timeline-track { display: none !important; }
+  .exp-timeline-scene .step-number { transform: none !important; transition: none; border-bottom-color: currentColor; }
+  .exp-timeline-scene .timeline h3 { border-left-color: currentColor; }
+}
+
+@media print {
+  .exp-timeline-ready .timeline > li { opacity: 1 !important; translate: none !important; }
+  .exp-hero-pieces, .exp-art-pieces, .exp-timeline-track { display: none !important; }
+  .exp-hero-static, .exp-art-ready > img { opacity: 1 !important; }
+  .exp-timeline-ready .timeline .step-number { border-bottom-color: currentColor; }
+  .exp-timeline-ready .timeline h3 { border-left-color: currentColor; }
+}
+
+/* Composición experimental: las bandas se mueven dentro de su sección. */
+.exp-drag-single-svg { display: none; }
+.exp-drag-ready > .exp-hero-pieces,
+.exp-drag-ready > .exp-art-pieces,
+.exp-drag-ready > .exp-drag-single-svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 0 !important;
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+  max-width: none;
+}
+.exp-drag-ready.exp-drag-touched > img { opacity: 0 !important; }
+.exp-drag-ready.exp-drag-touched > svg { opacity: 1 !important; }
+.exp-drag-handle {
+  pointer-events: visiblePainted;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.exp-drag-foreground { pointer-events: none; }
+.exp-drag-host:not(.exp-drag-ready) .exp-drag-handle { pointer-events: none; }
+.exp-letter-source { display: block; }
+.exp-letter-layer { display: none; }
+.intro-copy > p.exp-letter-active, .call-copy > p.exp-letter-active { position: relative; overflow-anchor: none; }
+.exp-letter-active > .exp-letter-source { position: absolute; inset: 0; opacity: 0; }
+.exp-letter-active > .exp-letter-layer { display: block; position: absolute; inset: 0; pointer-events: none; }
+.exp-letter-glyph { position: absolute; top: 0; left: 0; white-space: pre; transition: transform 80ms linear; }
+@media (prefers-reduced-motion: reduce) { .exp-letter-glyph { transition: none; } }
+@media print {
+  .intro-copy > p.exp-letter-active, .call-copy > p.exp-letter-active { height: auto !important; }
+  .exp-letter-active > .exp-letter-source { position: static; opacity: 1; }
+  .exp-letter-active > .exp-letter-layer { display: none; }
+}
+.hero-art.exp-drag-host, #call-title.exp-drag-host { z-index: 2; }
+/* Los límites del arrastre los controla JS; los enlaces inclinados no se recortan. */
+.hero-grid { overflow: visible; }
+.exp-is-dragging .exp-drag-handle { cursor: grabbing; }
+.exp-drag-handle:focus-visible { outline: 2px dashed #111; outline-offset: 5px; }
+.exp-play-controls {
+  position: fixed;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border: 1px solid #1d1d1b;
+  color: #1d1d1b;
+  background: #fcff71;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.exp-play-controls button {
+  padding: 5px 7px;
+  color: #fcff71;
+  background: #1d1d1b;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-drag-host .exp-hero-strip { animation: none !important; }
+}
+@media print {
+  .exp-play-controls, .exp-drag-ready > svg { display: none !important; }
+  .exp-drag-ready.exp-drag-touched > img { opacity: 1 !important; }
+}
+
+/* Menú desktop: dos píxeles menos, con más aire entre categorías. */
+@media (min-width: 721px) {
+  .desktop-nav {
+    font-size: calc(clamp(16px, 2.083333vw, var(--menu-desktop-font-max)) - 2px);
+    gap: calc(.65vw + 12px);
+  }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .desktop-nav {
+    font-size: calc(clamp(13.2px, 1.63636vw, var(--menu-tablet-font-max)) - 2px);
+    gap: 20px;
+  }
+}
+
+/* Contactos mínimos de esquina entre las bandas del menú móvil. */
+@media (max-width: 720px) {
+  .menu-stage .menu-call { top: 156.4px; }
+  .menu-stage .menu-editions { top: 161.4px; }
+  .menu-stage .menu-activities { top: 505.9px; }
+  .menu-stage .menu-contact { top: 474.6px; }
+
+  /* El título puede compartir la franja del header sin quedar tapado por su fondo. */
+  .home-page[data-current-view='actividades'] > .site-header {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .bio-dialog, .notice-dialog {
+    font-size: clamp(16px, 4.6vw, 18px);
+    line-height: 1.35;
+  }
+  .notice-dialog h2 { font-size: 24px; }
+}

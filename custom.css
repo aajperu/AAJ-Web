@@ -1,0 +1,106 @@
+/* AAJ! — AJUSTES DE MANTENIMIENTO
+   Este archivo se carga después de styles.css.
+   Usa este lugar para cambios pequeños. Consulta GUIA-EDICION.html.
+   Los colores integrados en SVG se cambian en el SVG o en Figma. */
+
+:root {
+  /* Paleta del sitio (los SVG conservan su propia paleta). */
+  --yellow: #fcff71;
+  --green: #9aff76;
+  --lilac: #c2bdff;
+  --blue: #5d94ff;
+  --ink: #1d1d1b;
+  --white: #f6f6f6;
+
+  /* Tamaños y separaciones habituales. */
+  --instagram-size: 44px;
+  --menu-desktop-font-max: 30px;
+  --menu-tablet-font-max: 18px;
+  --footer-mobile-font-max: 22.326px;
+  --gallery-bottom-desktop: 72px;
+  --gallery-bottom-mobile: 40px;
+  --hover-tilt: -3.5deg;
+}
+
+/* Reglas generales. */
+[hidden] { display: none !important; }
+.legal-footer .instagram-link,
+.call-page .legal-footer .instagram-link {
+  width: var(--instagram-size);
+  height: var(--instagram-size);
+}
+.close-cross { min-width: 44px; min-height: 44px; }
+.noscript-note {
+  padding: 18px 6.5vw;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.4;
+}
+.noscript-note a { text-decoration: underline; }
+
+/* La señal del + termina después de una vez; no distrae durante la lectura. */
+.bio-open span { animation-iteration-count: 1; }
+.mobile-menu.is-open .menu-stage {
+  animation-duration: 2s;
+  animation-iteration-count: 2;
+}
+.menu-stage:focus-within { animation-play-state: paused !important; }
+
+/* Escritorio: más de 720 px. */
+@media (min-width: 721px) {
+  .desktop-nav {
+    font-size: clamp(16px, 2.083333vw, var(--menu-desktop-font-max));
+  }
+  .activities { padding-bottom: var(--gallery-bottom-desktop); }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .desktop-nav {
+    font-size: clamp(13.2px, 1.63636vw, var(--menu-tablet-font-max));
+  }
+}
+
+/* Móvil: hasta 720 px. */
+@media (max-width: 720px) {
+  .legal-footer small {
+    font-size: clamp(16.2px, 5.682vw, var(--footer-mobile-font-max));
+  }
+  .activities { padding-bottom: var(--gallery-bottom-mobile); }
+  .slide-image-wrap {
+    max-height: calc(100svh - var(--header-height, 88px) - var(--footer-height, 75px) - var(--caption-height, 48px) - clamp(100px, 17.6svh, 150px) - var(--gallery-bottom-mobile) - var(--photo-caption-gap));
+  }
+  .mobile-menu.short-viewport { overflow-y: auto; overflow-x: hidden; }
+  .mobile-menu.short-viewport::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: var(--menu-height);
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+}
+
+/* Inclinación de enlaces: solo dispositivos con cursor y foco de teclado. */
+@media (hover: hover) and (pointer: fine) {
+  .call-link:hover, .bases-link:hover { transform: rotate(var(--hover-tilt)); }
+}
+.call-link:focus-visible, .bases-link:focus-visible {
+  transform: rotate(var(--hover-tilt));
+}
+@media (prefers-reduced-motion: reduce) {
+  .call-link, .bases-link { transition: none; }
+  .mobile-menu.is-open .menu-stage { animation: none !important; }
+}
+/* Una etiqueta enfocada con teclado se queda quieta y visible. */
+.menu-stage .menu-item:focus-visible {
+  animation: none !important;
+  transform: rotate(var(--angle));
+  opacity: 1;
+}
+.curator-portrait { object-fit: cover; }
+@media (max-width: 720px) {
+  /* Aumenta el contraste del texto grande sobre el tramo oscuro del degradado. */
+  .call-page .timeline { color: #111111; }
+}
