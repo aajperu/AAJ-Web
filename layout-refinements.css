@@ -46,6 +46,8 @@
   .allies { margin-top: calc(100 * var(--desktop-unit)); }
   .ally-grid { margin-top: calc(59.2 * var(--desktop-unit)); }
   .intro { padding-bottom: calc(134.4 * var(--desktop-unit)); }
+  /* Sin aliados, el cierre amarillo repite el espacio anterior al programa. */
+  .intro.intro--without-allies { padding-bottom: max(64px, calc(95.2 * var(--desktop-unit))); }
   .curator-bio {
     font-size: max(12px, calc(24.62 * var(--desktop-unit) - 8px));
     line-height: 1.35; padding-top: calc(153.12 * var(--desktop-unit));
@@ -119,6 +121,8 @@
   .site-header { padding-inline: 5.6vw; }
   .intro, .editions, .call-main, .activities, .home-page .contact { padding-inline: var(--gutter); }
   .intro { padding-top: 24px; padding-bottom: 52px; }
+  /* Mantiene el mismo intervalo que separa los pasos del programa en móvil. */
+  .intro.intro--without-allies { padding-bottom: 52px; }
   .intro-copy { margin-top: 100px; }
   .intro-copy p + p { margin-top: 1.12em; }
   .call-link { margin-top: 60px; }
