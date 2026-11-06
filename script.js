@@ -300,6 +300,7 @@ window.addEventListener('pageshow', () => {
   const footer = document.querySelector('.legal-footer');
   const direction = document.querySelector('.contact > p');
   const icon = footer?.querySelector('.instagram-link');
+  const contactBrand = document.querySelector('.contact-heading .brand');
   let alignmentFrame = 0;
   function alignInstagram() {
     alignmentFrame = 0;
@@ -309,7 +310,11 @@ window.addEventListener('pageshow', () => {
     if (visible) {
       const style = getComputedStyle(direction);
       const lineHeight = parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.2;
-      const top = textBox.top - footer.getBoundingClientRect().top + (lineHeight - icon.offsetHeight) / 2;
+      const footerTop = footer.getBoundingClientRect().top;
+      let top = textBox.top - footerTop + (lineHeight - icon.offsetHeight) / 2;
+      const brandBox = contactBrand?.getBoundingClientRect();
+      // El icono conserva su tamaño, pero nunca invade el logo al estrechar la ventana.
+      if (brandBox?.width && brandBox.height) top = Math.max(top, brandBox.bottom - footerTop + 12);
       footer.style.setProperty('--instagram-contact-top', `${top}px`);
     }
     footer.classList.toggle('instagram-at-contact', visible);
@@ -319,7 +324,7 @@ window.addEventListener('pageshow', () => {
   }
   if (typeof ResizeObserver !== 'undefined') {
     const observer = new ResizeObserver(scheduleInstagram);
-    [footer, direction, document.querySelector('main')].filter(Boolean).forEach(element => observer.observe(element));
+    [footer, direction, contactBrand, document.querySelector('main')].filter(Boolean).forEach(element => observer.observe(element));
   }
   ['resize', 'load', 'pageshow', 'hashchange'].forEach(type => window.addEventListener(type, scheduleInstagram));
   document.fonts?.ready.then(scheduleInstagram);

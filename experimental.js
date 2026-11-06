@@ -5,7 +5,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 720px)');
   const clamp = value => Math.max(0, Math.min(1, value));
-  const titles = [...document.querySelectorAll('#hero-title, [data-exp-art]')].map(host => ({
+  const titles = [...document.querySelectorAll('#hero-title:not([data-physics]), [data-exp-art]:not([data-physics])')].map(host => ({
     host, image: host.querySelector('img'), svg: host.querySelector('.exp-hero-pieces, .exp-art-pieces'), played: false
   })).filter(title => title.image && title.svg);
   const singleTitles = [...document.querySelectorAll('.activity-heading > span > img')].map(element => ({element, played: false}));

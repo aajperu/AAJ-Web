@@ -1,0 +1,24 @@
+/* Los SVG originales conservan el espacio y el acabado final de cada título. */
+[data-physics] { position: relative; }
+[data-physics].aaj-physics-ready > img {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+[data-physics].aaj-physics-ready > .aaj-physics-svg {
+  display: block;
+  position: absolute;
+  max-width: none;
+  overflow: visible;
+  pointer-events: none;
+  user-select: none;
+}
+.aaj-physics-svg > g { animation: none !important; transform-origin: 0 0; }
+[data-physics].aaj-physics-settled > img {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+[data-physics].aaj-physics-settled > .aaj-physics-svg { display: none; }
+@media (prefers-reduced-motion: reduce), print {
+  [data-physics] > img { visibility: visible !important; opacity: 1 !important; }
+  [data-physics] > .aaj-physics-svg { display: none !important; }
+}
