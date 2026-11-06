@@ -263,9 +263,10 @@
     width: 44px; height: 44px;
     top: calc((100% - var(--caption-height, 48px) - var(--photo-caption-gap, 10px)) / 2);
   }
-  .activities .slide-prev { left: -22px; right: auto; }
-  .activities .slide-next { right: -22px; left: auto; }
-  .slide-prev svg, .slide-next svg { width: 14px; height: 22px; }
+  .activities .slideshow { width: calc(100% - 96px); margin-inline: auto; }
+  .activities .slide-prev { left: -48px; right: auto; }
+  .activities .slide-next { right: -48px; left: auto; }
+  .slide-prev svg, .slide-next svg { width: 24px; height: 32px; }
   .menu-head .brand:focus { outline: none; }
   .menu-head .brand:focus-visible { box-shadow: 0 3px 0 var(--ink); }
 }

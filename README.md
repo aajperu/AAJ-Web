@@ -33,7 +33,7 @@ Referencia oficial: https://developers.cloudflare.com/pages/framework-guides/dep
 
 ## Dominio de Porkbun
 
-El dominio principal configurado es https://aaj.lat. Ambas páginas incluyen canonical, Open Graph y Twitter con URLs absolutas. robots.txt apunta a https://aaj.lat/sitemap.xml, que contiene / y /convocatoria. La imagen social está en assets/social.jpg.
+El dominio principal configurado es https://aaj.lat. Ambas páginas incluyen canonical, Open Graph y Twitter con URLs absolutas. robots.txt apunta a https://aaj.lat/sitemap.xml, que contiene / y /convocatoria. La imagen social muestra el logo original sobre fondo amarillo y está en assets/social-logo.jpg (1200 × 630 px).
 
 La configuración de estos archivos no acredita que el dominio esté conectado ni que el despliegue esté publicado.
 
