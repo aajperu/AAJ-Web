@@ -310,5 +310,5 @@
 }
 
 /* Fotos: un píxel adicional respecto del borde anterior. */
-.curator-portrait, .slide-image-wrap { border-width: 2px; }
-.group-photo img { border: 1px solid var(--ink); }
+.curator-portrait, .slide-image-wrap { border-width: 2px; border-color: #1d1d1b; }
+.group-photo img { border: 1px solid #1d1d1b; }
