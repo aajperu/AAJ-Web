@@ -72,7 +72,7 @@ mobile.addEventListener('change', () => {
 function openMenu() {
   if (!mobile.matches || !menu || menu.open) return;
   clearTimeout(menuTimer);
-  menu.classList.remove('is-closing', 'menu-ready');
+  menu.classList.remove('is-closing', 'is-closing-simple', 'menu-ready');
   menu.showModal();
   syncLock();
   fitMenuComposition();
@@ -80,24 +80,30 @@ function openMenu() {
   requestAnimationFrame(() => requestAnimationFrame(() => menu.classList.add('is-open')));
 }
 
-function closeMenu(immediate = false, after) {
+function closeMenu(immediate = false, after, releaseBlocks = false) {
   if (!menu?.open) {
     after?.();
     return;
   }
-  if (menu.classList.contains('is-closing') && !immediate) return;
+  if (menu.matches('.is-closing, .is-closing-simple') && !immediate) return;
   clearTimeout(menuTimer);
   toggle?.setAttribute('aria-expanded', 'false');
   const finish = () => {
     menu.close();
     menuReleaseAnimations.forEach(animation => animation.cancel());
     menuReleaseAnimations = [];
-    menu.classList.remove('is-open', 'is-closing', 'menu-ready');
+    menu.classList.remove('is-open', 'is-closing', 'is-closing-simple', 'menu-ready');
     syncLock();
     after?.();
   };
   if (immediate || reducedMotion.matches) {
     finish();
+    return;
+  }
+  // Navegar o pulsar Escape usa el cierre simple de 100 ms.
+  if (!releaseBlocks) {
+    menu.classList.add('is-closing-simple');
+    menuTimer = setTimeout(finish, 100);
     return;
   }
   // Cada bloque conserva su posición, se suelta y acelera con gravedad propia.
@@ -128,7 +134,7 @@ function closeMenu(immediate = false, after) {
 }
 
 toggle?.addEventListener('click', openMenu);
-menu?.querySelector('.menu-close')?.addEventListener('click', () => closeMenu());
+menu?.querySelector('.menu-close')?.addEventListener('click', () => closeMenu(false, undefined, true));
 menu?.addEventListener('cancel', event => {
   event.preventDefault();
   closeMenu();

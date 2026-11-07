@@ -308,3 +308,7 @@
   .curator-grid--luis .curator-label-desktop { left: 0; right: auto; text-align: left; }
   .editions .artists, .editions .group-photo { grid-row: 4; }
 }
+
+/* Fotos: un píxel adicional respecto del borde anterior. */
+.curator-portrait, .slide-image-wrap { border-width: 2px; }
+.group-photo img { border: 1px solid var(--ink); }

@@ -9,6 +9,10 @@
   }
   .mobile-menu .menu-item { --delay: 0s; }
   .mobile-menu.is-open .menu-item span { animation: none !important; }
+  .mobile-menu.is-open.is-closing-simple {
+    opacity: 0; transition: opacity 100ms linear; pointer-events: none;
+  }
+  .mobile-menu.is-closing-simple .menu-stage .menu-item { animation-play-state: paused; }
   .mobile-menu.is-closing { clip-path: none; opacity: 1; transition: none; }
   .mobile-menu.is-closing .menu-stage .menu-item { animation: none; pointer-events: none; }
   .mobile-menu.is-closing .menu-head { opacity: 0; transition: opacity 120ms linear; }
@@ -21,6 +25,6 @@
   100% { transform: translateY(0) rotate(var(--angle)); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mobile-menu[open], .mobile-menu.is-closing, .mobile-menu.is-closing .menu-head { transition: none; }
+  .mobile-menu[open], .mobile-menu.is-closing, .mobile-menu.is-open.is-closing-simple, .mobile-menu.is-closing .menu-head { transition: none; }
   .mobile-menu.is-open .menu-stage .menu-item { animation: none !important; transform: rotate(var(--angle)); opacity: 1; }
 }
