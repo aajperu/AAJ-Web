@@ -9,6 +9,7 @@ const views = [...document.querySelectorAll('[data-view]')];
 const menu = document.getElementById('mobile-menu');
 const toggle = document.querySelector('.menu-toggle');
 let menuTimer;
+let menuReleaseAnimations = [];
 
 // 1. Navegación: secciones continuas en desktop, vistas independientes en móvil.
 function syncLock() {
@@ -84,10 +85,13 @@ function closeMenu(immediate = false, after) {
     after?.();
     return;
   }
+  if (menu.classList.contains('is-closing') && !immediate) return;
   clearTimeout(menuTimer);
   toggle?.setAttribute('aria-expanded', 'false');
   const finish = () => {
     menu.close();
+    menuReleaseAnimations.forEach(animation => animation.cancel());
+    menuReleaseAnimations = [];
     menu.classList.remove('is-open', 'is-closing', 'menu-ready');
     syncLock();
     after?.();
@@ -96,8 +100,31 @@ function closeMenu(immediate = false, after) {
     finish();
     return;
   }
+  // Cada bloque conserva su posición, se suelta y acelera con gravedad propia.
+  const items = [...menu.querySelectorAll('.menu-item')];
+  const scale = Math.max(parseFloat(menu.style.getPropertyValue('--menu-scale')) || 1, .1);
+  const snapshots = items.map(item => ({ item, matrix: new DOMMatrixReadOnly(getComputedStyle(item).transform), rect: item.getBoundingClientRect() }));
   menu.classList.add('is-closing');
-  menuTimer = setTimeout(finish, 320);
+  const releaseOrder = [65, 0, 105, 30, 140];
+  const spins = [-38, 29, -24, 43, -32];
+  const drifts = [-42, 28, 48, -26, 35];
+  let completeAt = 0;
+  snapshots.forEach(({ item, matrix, rect }, index) => {
+    const delay = releaseOrder[index] || 0;
+    // Misma gravedad en píxeles de pantalla: las bandas inferiores salen antes.
+    const distance = Math.max(120, menu.clientHeight - rect.top + Math.max(rect.width, rect.height) + 40);
+    const duration = Math.sqrt(2 * distance / 4200) * 1000;
+    const frames = Array.from({ length: 25 }, (_, frame) => {
+      const t = frame / 24;
+      const position = new DOMMatrix([matrix.a, matrix.b, matrix.c, matrix.d,
+        matrix.e + drifts[index] * t / scale,
+        matrix.f + distance * t * t / scale]);
+      return { offset: t, transform: position.rotate(spins[index] * t).toString(), opacity: 1 };
+    });
+    menuReleaseAnimations.push(item.animate(frames, { duration, delay, easing: 'linear', fill: 'both' }));
+    completeAt = Math.max(completeAt, delay + duration);
+  });
+  menuTimer = setTimeout(finish, completeAt + 30);
 }
 
 toggle?.addEventListener('click', openMenu);
@@ -111,18 +138,20 @@ menu?.addEventListener('close', () => {
   syncLock();
 });
 menu?.addEventListener('animationend', event => {
-  if (event.animationName === 'menu-fall' && event.target.classList.contains('menu-contact')) {
+  if (event.animationName === 'menu-block-drop' && event.target.classList.contains('menu-contact')) {
     menu.classList.add('menu-ready');
   }
 });
 menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', event => {
   const target = new URL(link.href);
   const sameDocument = target.pathname === location.pathname || (location.pathname.endsWith('/') && target.pathname.endsWith('/index.html'));
+  // Los enlaces conservan abrir en otra pestaña con teclas modificadoras.
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+  event.preventDefault();
   if (!sameDocument) {
-    closeMenu(true);
+    closeMenu(false, () => location.assign(target.href));
     return;
   }
-  event.preventDefault();
   closeMenu(false, () => {
     if (location.hash === target.hash) setView({ scroll: true, focus: true });
     else location.hash = target.hash;
@@ -138,6 +167,11 @@ function fitMenuComposition() {
   menu.classList.toggle('short-viewport', shortViewport);
   const scale = shortViewport ? Math.min(menu.clientWidth / 390, 1) : Math.min(menu.clientWidth / 390, availableHeight / 650);
   menu.style.setProperty('--menu-scale', String(scale));
+  menu.querySelectorAll('.menu-item').forEach((item, index) => {
+    item.style.setProperty('--menu-entry-duration', [740, 810, 860, 770, 830][index] + 'ms');
+    item.style.setProperty('--menu-entry-tilt', [-5, 4, -3, 6, -4][index] + 'deg');
+    item.style.setProperty('--menu-drop', -(item.offsetTop + item.offsetHeight + headerHeight / Math.max(scale, .1)) + 'px');
+  });
   menu.style.setProperty('--menu-top', headerHeight + 'px');
   menu.style.setProperty('--menu-height', (headerHeight + 650 * scale) + 'px');
 }
@@ -165,7 +199,9 @@ for (const dialog of document.querySelectorAll('dialog:not(.mobile-menu)')) {
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
   });
 }
-document.querySelector('.bio-open')?.addEventListener('click', () => openContentDialog(document.getElementById('bio-dialog'), '#bio-content'));
+document.querySelectorAll('.bio-open').forEach(button => {
+  button.addEventListener('click', () => openContentDialog(document.getElementById(button.getAttribute('aria-controls')), 'p[tabindex]'));
+});
 document.querySelector('[data-bases]')?.addEventListener('click', () => {
   if (config.basesUrl) {
     window.open(config.basesUrl, '_blank', 'noopener,noreferrer');

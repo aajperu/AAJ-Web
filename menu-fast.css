@@ -1,0 +1,26 @@
+/* Borrador v3: impacto rápido, acomodo suave y suelta independiente. */
+@media (max-width: 720px) {
+  .mobile-menu[open] { clip-path: none; opacity: 0; transition: opacity 90ms linear; }
+  .mobile-menu.is-open { opacity: 1; }
+  .mobile-menu.is-open .menu-stage { animation: none !important; }
+  .mobile-menu.is-open .menu-stage .menu-item {
+    animation: menu-block-drop var(--menu-entry-duration, 790ms) linear both;
+    animation-delay: 0ms;
+  }
+  .mobile-menu .menu-item { --delay: 0s; }
+  .mobile-menu.is-open .menu-item span { animation: none !important; }
+  .mobile-menu.is-closing { clip-path: none; opacity: 1; transition: none; }
+  .mobile-menu.is-closing .menu-stage .menu-item { animation: none; pointer-events: none; }
+  .mobile-menu.is-closing .menu-head { opacity: 0; transition: opacity 120ms linear; }
+}
+@keyframes menu-block-drop {
+  0% { transform: translateY(var(--menu-drop, -700px)) rotate(calc(var(--angle) + var(--menu-entry-tilt, -5deg))); opacity: 1; animation-timing-function: cubic-bezier(.42, 0, .85, .55); }
+  43% { transform: translateY(3px) rotate(calc(var(--angle) + 1.6deg)); animation-timing-function: cubic-bezier(.18, .65, .4, 1); }
+  64% { transform: translateY(-3px) rotate(calc(var(--angle) - 1deg)); animation-timing-function: ease-in-out; }
+  83% { transform: translateY(0) rotate(calc(var(--angle) + .35deg)); animation-timing-function: ease-out; }
+  100% { transform: translateY(0) rotate(var(--angle)); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu[open], .mobile-menu.is-closing, .mobile-menu.is-closing .menu-head { transition: none; }
+  .mobile-menu.is-open .menu-stage .menu-item { animation: none !important; transform: rotate(var(--angle)); opacity: 1; }
+}

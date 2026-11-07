@@ -294,3 +294,17 @@
   }
   .legal-footer .instagram-link svg { width: 36px; height: 36px; }
 }
+
+/* Segundo curador de la edición 2026. Conserva el diseño vigente de Gaby. */
+.curator-grid--luis { margin-top: 64px; }
+@media (min-width: 721px) {
+  .curator-grid--luis {
+    grid-row: 3;
+    grid-template-columns: calc(403 * var(--desktop-unit)) minmax(0, 1fr);
+    margin-top: calc(100 * var(--desktop-unit));
+  }
+  .curator-grid--luis .curator-profile { grid-column: 1; }
+  .curator-grid--luis .curator-bio { grid-column: 2; }
+  .curator-grid--luis .curator-label-desktop { left: 0; right: auto; text-align: left; }
+  .editions .artists, .editions .group-photo { grid-row: 4; }
+}
