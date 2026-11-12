@@ -237,16 +237,17 @@
 /* Correcciones mobile: pie inferior y composición de Contacto y Actividades. */
 @media (max-width: 720px) {
   .home-page .legal-footer, .call-page .legal-footer {
-    box-sizing: border-box; height: 64px; min-height: 64px;
-    margin-top: 0; padding: 10px 4vw; align-items: flex-end;
+    --footer-bottom-space: calc(28px + env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box; height: auto; min-height: calc(54px + var(--footer-bottom-space));
+    margin-top: 0; padding: 10px 4vw var(--footer-bottom-space); align-items: flex-end;
   }
   .legal-footer .instagram-link,
   .call-page .legal-footer .instagram-link,
   .legal-footer.instagram-at-contact .instagram-link,
   .call-page .legal-footer.instagram-at-contact .instagram-link {
-    top: auto; bottom: 10px; right: 0;
+    top: auto; bottom: var(--footer-bottom-space); right: 0;
   }
-  .back-to-top { bottom: 10px; align-items: flex-end; }
+  .legal-footer .back-to-top { bottom: var(--footer-bottom-space); align-items: flex-end; }
   .home-page .contact {
     position: relative; display: grid; align-content: center;
     min-height: calc(100svh - var(--header-height, 88px) - var(--footer-height, 64px));
@@ -267,9 +268,16 @@
     width: 44px; height: 44px;
     top: calc((100% - var(--caption-height, 48px) - var(--photo-caption-gap, 10px)) / 2);
   }
-  .activities .slideshow { width: calc(100% - 96px); margin-inline: auto; }
-  .activities .slide-prev { left: -48px; right: auto; }
-  .activities .slide-next { right: -48px; left: auto; }
+  /* Las flechas quedan fuera del encuadre y conservan un área táctil de 44px. */
+  .activities { --slide-side-space: 34px; padding-inline: var(--slide-side-space); }
+  .activities .slide-prev {
+    left: calc(-1 * var(--slide-side-space)); right: auto;
+    justify-items: start; padding-left: 5px;
+  }
+  .activities .slide-next {
+    right: calc(-1 * var(--slide-side-space)); left: auto;
+    justify-items: end; padding-right: 5px;
+  }
   .slide-prev svg, .slide-next svg { width: 24px; height: 32px; }
   .menu-head .brand:focus { outline: none; }
   .menu-head .brand:focus-visible { box-shadow: 0 3px 0 var(--ink); }
@@ -283,7 +291,7 @@
 @media (max-width: 720px) {
   .legal-footer small { font-size: clamp(24px, 7.6vw, 30px); line-height: 1; font-weight: 300; }
   .back-to-top {
-    left: auto; right: calc(4vw + 44px); bottom: 10px; transform: none;
+    left: auto; right: calc(4vw + 44px); transform: none;
     width: 44px; height: 44px;
   }
   .back-to-top svg { width: 18px; height: 32px; }
